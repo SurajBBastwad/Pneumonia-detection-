@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Prediction Result</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', sans-serif;
+            background-color: #f7f9fc;
+            text-align: center;
+            padding: 60px;
+        }
+
+        .result-container {
+            background: white;
+            padding: 40px;
+            border-radius: 10px;
+            display: inline-block;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+        }
+
+        .result {
+            font-size: 32px;
+            margin: 20px 0;
+            font-weight: bold;
+        }
+
+        .normal {
+            color: green;
+        }
+
+        .pneumonia {
+            color: red;
+        }
+
+        a {
+            margin-top: 20px;
+            display: inline-block;
+            text-decoration: none;
+            color: #007BFF;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <div class="result-container">
+        <h1>Prediction Result</h1>
+        <div class="result {{ 'pneumonia' if prediction == 'PNEUMONIA' else 'normal' }}">
+            {{ prediction }}
+        </div>
+        <p>
+            {{ '⚠️ Signs of Pneumonia detected. Please consult a doctor.' if prediction == 'PNEUMONIA' else '✅ Lungs appear normal.' }}
+        </p>
+        <a href="/">Try another image</a>
+    </div>
+</body>
+</html>
